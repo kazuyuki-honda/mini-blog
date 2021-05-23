@@ -92,7 +92,7 @@
   }
 
 
-  #article-body > blockquote {
+  #article-body > span  > blockquote {
     background: #f3f3f3;
     padding: 10px 12px;
     font-style: italic;
@@ -103,7 +103,7 @@
     position: relative;
   }
   
-  #article-body > blockquote:before {
+  #article-body > span  > blockquote:before {
     position: absolute;
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
@@ -117,7 +117,7 @@
     transform: translateY(-50%);
   }
   
-  #article-body > p code {
+  #article-body > span  > p code {
     display: inline-block;
     background: #eee;
     padding: 1px 5px;
@@ -141,18 +141,18 @@
     overflow-x: scroll;
   }
   
-  #article-body > *:not(pre) {
+  #article-body > span  > *:not(pre) {
     display: block;
     max-width: 92%;
     margin-right: auto;
     margin-left: auto;
   }
   
-  #article-body > h1 {
+  #article-body > span  > h1 {
     font-size: 28px;
   }
   
-  #article-body > h2 {
+  #article-body > span  > h2 {
     font-size: 24px;
     background: #f7f7f7;
     padding: 8px 12px;
@@ -162,7 +162,7 @@
     border-bottom: 3px solid #dadada;
   }
   
-  #article-body > h3 {
+  #article-body > span  > h3 {
     font-size: 20px;
     padding: 8px 12px;
     margin-top: 32px;
@@ -170,7 +170,7 @@
     position: relative;
   }
   
-  #article-body > h3::before {
+  #article-body > span  > h3::before {
     content: '';
     position: absolute;
     top: 0;
@@ -181,7 +181,7 @@
     border-radius: 2px;
   }
   
-  #article-body > h4 {
+  #article-body > span  > h4 {
     font-size: 16px;
     position: relative;
     padding: 0 0 0 15px;
@@ -189,7 +189,7 @@
     margin-bottom: 8px;
   }
   
-  #article-body > h4::before {
+  #article-body > span  > h4::before {
     font-family: 'Font Awesome 5 Free';
     content: '\f00c';
     font-size: 0.6em;
@@ -199,21 +199,21 @@
     transform: translate(0, -50%);
   }
   
-  #article-body > h5 {
+  #article-body > span  > h5 {
     font-size: 12px;
     margin-top: 24px;
     margin-bottom: 8px;
   }
   
-  #article-body > p,
-  #article-body > ul,
-  #article-body > ol {
+  #article-body > span  > p,
+  #article-body > span  > ul,
+  #article-body > span  > ol {
     margin-top: 12px;
     margin-bottom: 8px;
   }
   
-  #article-body > ul > li,
-  #article-body > ol > li {
+  #article-body > span  > ul > li,
+  #article-body > span  > ol > li {
     margin-left: 20px;
   }
   
@@ -222,17 +222,17 @@
     margin-left: 20px;
   }
   
-  #article-body > table {
+  #article-body > span  > table {
     border-collapse: collapse;
   }
   
-  #article-body > table th,
-  #article-body > table td {
+  #article-body > span  > table th,
+  #article-body > span  > table td {
     border: 1px solid #ccc;
     padding: 8px 10px;
   }
   
-  #article-body > table > tbody tr:nth-of-type(odd) {
+  #article-body > span  > table > tbody tr:nth-of-type(odd) {
     background: #eee;
   }
   
@@ -240,10 +240,10 @@
     color: #0000ee;
   }
   
-  #article-body > *:first-child {
+  #article-body > span  > *:first-child {
     margin-top: 0;
   }
   
-  #article-body > *:last-child {
+  #article-body > span  > *:last-child {
     margin-bottom: 48px;
   }

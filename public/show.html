@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- <script src="https://unpkg.com/vue-remarkable"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.28.5/date_fns.min.js"></script>
+
+    <script src="https://unpkg.com/vue-remarkable"></script>
 
 
 
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/show.css" />
+    <link rel="stylesheet" href="/assets/css/article.css" />
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
@@ -21,6 +23,7 @@
         if(localStorage.getItem('token') === null) {
             location.href = '/login'
         }
+
     </script>
   </head>
 
@@ -47,8 +50,9 @@
                 </div>
               </div>
               <div class="article-body">
-                <div id="article-body" data-markdown="">{{ article.body }}</div>
-                <vue-remarkable :source="article.body"></vue-remarkable>
+                <vue-remarkable id="article-body">
+                        {{ article.body }}
+                    </vue-remarkable>
               </div>
             </div>
             <div class="article-footer"></div>

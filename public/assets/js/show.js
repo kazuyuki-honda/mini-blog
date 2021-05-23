@@ -1,17 +1,8 @@
-import vueRemarkable from 'vue-remarkable';
-export default {
-  components: {
-    vueRemarkable
-  }
-}
+Vue.component('vueRemarkable', vueremarkable)
 
 
 let showArticle= new Vue({
-    
     el: "#show-article",
-    // components: {
-    //     vueRemarkable
-    // },
     filters: {
         formatDate(date) {
             return dateFns.format(new Date(date), 'YYYY-MM-DD HH:mm:ss');
@@ -22,6 +13,7 @@ let showArticle= new Vue({
         article:'',
     },
     methods:{
+        
         search(){
             const url='/api/articles/'+this.articleID
             const headers = {
@@ -61,3 +53,4 @@ const logout = new Vue({
     },
     }
 })
+

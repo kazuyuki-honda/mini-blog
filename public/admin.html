@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vuejs-paginate@2.1.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.28.5/date_fns.min.js"></script>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mini Blog Admin Page </title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/article.css" />
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <script type="text/javascript">
+        if(localStorage.getItem('token') === null) {
+            location.href = '/login'
+        }
+    </script>
+  </head>
+
+  <body>
+    <header>
+        <div class="header">
+           <a class="header__logo" href="/admin">mini Blog Admin Page </a>
+         <div class="header__logout" id="logout">
+           <a class="no-color-change" name="logout" href="javascript:void(0)" @click="logout()">Logout</a>
+        </div>
+    </div>
+
+    </header>
+
+    <main>
+        <div id="article-list" class="l-col">
+            <div class="page">
+              <h1 class="page__title">記事一覧</h1>
+              <a class="page__new btn--primary" href="admin/articles/new">新規</a>
+      
+              <div class="page__articles">
+                <div class="articles">
+                    <template v-for="article in allArticles">
+                    <article class="articles__item">
+                      <a class="articles__item" :href="`admin/articles/${article.id}`" >
+                      <div class="articles__item-title">{{ article.title }}</div>
+                      <div class="articles__item-date">{{ article.created | formatDate }}</div>
+                    </a>
+                      <a class="article__item-edit" :href="`/admin/articles/edit/${article.id}`"><i class="far fa-edit"></i></a>
+                      <button class="articles__item-delete" @click="deleteArticle(article.id)"><i class="fas fa-trash-alt"></i></button>
+                    </article>
+                </template>
+              </div>
+            <div class="pagenaition-position">
+                <paginate
+                v-model="currentPage"
+                :page-count="pages"
+                :page-range="3"
+                :margin-pages="1"
+                :click-handler="paging"
+                :prev-text="'＜'"
+                :next-text="'＞'"
+                :container-class="'pagination'"
+               />
+
+            </div>
+            <!-- /.pagenaition-position -->
+
+
+            </div>
+        </div>
+
+
+
+
+
+    </main>
+
+    <footer>
+      <div class="footer">
+
+        <div class="footer__copy-right">
+            copy right
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript"  src="/assets/js/admin.js"></script>
+  </body>
+</html>

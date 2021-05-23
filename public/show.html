@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/vue-remarkable"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.28.5/date_fns.min.js"></script>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mini Blog Admin Page </title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/show.css" />
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <script type="text/javascript">
+        if(localStorage.getItem('token') === null) {
+            location.href = '/login'
+        }
+    </script>
+  </head>
+
+  <body>
+    <header>
+        <div class="header">
+           <a class="header__logo" href="/admin">mini Blog Admin Page </a>
+         <div class="header__logout" id="logout">
+           <a class="no-color-change" name="logout" href="javascript:void(0)" @click="logout()">Logout</a>
+        </div>
+    </div>
+
+    </header>
+
+    <main>
+        <div id="show-article" class="l-col l-row l-v-padd">
+            <div class="article">
+              <div class="article__header">
+                <h1 class="article__title">{{ article.title }}</h1>
+                <a class="article__edit btn--info" href="">編集</a>
+                <div class="article__date">
+                  <div class="article__updated">更新: {{ article.updated | formatDate }}</div>
+                  <div class="article__published">公開: {{ article.created | formatDate }}</div>
+                </div>
+              </div>
+              <div class="article-body">
+                <div id="article-body" data-markdown="">{{ article.body }}</div>
+                <vue-remarkable :source="article.body"></vue-remarkable>
+              </div>
+            </div>
+            <div class="article-footer"></div>
+          </div>
+    </main>
+
+    <footer>
+      <div class="footer">
+
+        <div class="footer__copy-right">
+            copy right
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript"  src="/assets/js/show.js"></script>
+  </body>
+</html>

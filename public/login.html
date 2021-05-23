@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script type="text/javascript">
+            if(localStorage.getItem('token') !== null) {
+                location.href = '/admin';
+            }
+        </script>
+        <link href="assets/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <form class="login-form" id="login-form">
+            <h1>mini Blog Login</h1>
+            <div class="login-form-label" >
+                <input type="text" id="name" name="username" v-model:value="name" placeholder="ID">
+            </div>
+            <div class="login-form-label" >
+                <input type="password" id="pwd" name="password" v-model:value="password" placeholder="Password">
+            </div>
+            <button type="button" name="button" @click="login" class="my-button buttonC">Login</button>
+        </form>
+        <script src="assets/js/login.js"></script>
+    </body>
+</html>
